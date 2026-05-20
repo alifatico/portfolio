@@ -17,7 +17,7 @@ export default function Contact() {
           </a>
         </div>
         <p className={styles.footer}>
-          © {new Date().getFullYear()} Enrico Damiani
+          © 2026 Enrico Damiani
         </p>
       </FadeIn>
     </section>

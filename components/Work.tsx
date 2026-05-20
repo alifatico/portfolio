@@ -25,7 +25,12 @@ export default function Work() {
               tabIndex={0}
               aria-expanded={openIndex === i}
               onClick={() => toggle(i)}
-              onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && toggle(i)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  toggle(i);
+                }
+              }}
             >
             <div className={styles.cardHeader}>
               <div className={styles.meta}>
@@ -36,6 +41,7 @@ export default function Work() {
                 </p>
               </div>
               <span
+                aria-hidden="true"
                 className={[
                   styles.toggle,
                   openIndex === i ? styles.toggleOpen : "",
