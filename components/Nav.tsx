@@ -10,6 +10,7 @@ export default function Nav() {
   const lastYRef = useRef(0);
 
   useEffect(() => {
+    lastYRef.current = window.scrollY;
     const handleScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 20);
@@ -30,7 +31,7 @@ export default function Nav() {
     .join(" ");
 
   return (
-    <nav className={cls}>
+    <nav className={cls} aria-label="Primary" inert={hidden ? true : undefined}>
       <span className={styles.name}>Enrico Damiani</span>
       <ul className={styles.links}>
         <li><a href="#work">Work</a></li>
