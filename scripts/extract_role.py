@@ -7,7 +7,6 @@ Usage: python3 scripts/extract_role.py <path-to-docx>
 import sys
 import json
 import re
-from pathlib import Path
 
 try:
     from docx import Document
@@ -17,7 +16,7 @@ except ImportError:
 
 TOOL_KEYWORDS = {
     "Excel", "VBA", "Power BI", "PowerPoint", "SharePoint", "ThinkCell",
-    "SAP", "Python", "SQL", "Teams", "Outlook", "Tableau", "Salesforce",
+    "SAP", "Python", "SQL", "Microsoft Teams", "Outlook", "Tableau", "Salesforce",
     "Git", "Apify",
 }
 
@@ -38,7 +37,7 @@ def extract(path: str) -> dict:
     responsibilities = [
         p.text.strip()
         for p in doc.paragraphs
-        if p.style.name == "List Paragraph" and p.text.strip()
+        if "list" in p.style.name.lower() and p.text.strip()
     ]
 
     all_text = " ".join(p.text for p in doc.paragraphs)
