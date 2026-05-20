@@ -5,19 +5,22 @@ import styles from "./Contact.module.css";
 export default function Contact() {
   return (
     <section id="contact" className={styles.section}>
-      <FadeIn>
+      <FadeIn animClass="fade-up">
         <h2 className={styles.sectionLabel}>Contact</h2>
-        <p className={styles.heading}>Let&apos;s work together.</p>
+        <p className={styles.heading}>Start a conversation.</p>
+        <p className={styles.sub}>
+          Tell us about your challenge — we&apos;ll respond within 24 hours.
+        </p>
         <div className={styles.actions}>
-          <a href="mailto:enrico.d2324@gmail.com" className={styles.emailLink}>
-            enrico.d2324@gmail.com
+          <a href="mailto:hello@solvix.co" className={styles.emailLink}>
+            hello@solvix.co
           </a>
-          <a href="/cv.pdf" download className={styles.cvButton}>
-            Download CV
+          <a href="/deck.pdf" download className={styles.deckButton}>
+            Download deck
           </a>
         </div>
         <p className={styles.footer}>
-          © 2026 Enrico Damiani
+          © 2026 Solvix. All rights reserved.
         </p>
       </FadeIn>
     </section>

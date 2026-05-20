@@ -10,6 +10,7 @@
   --text-secondary: #888888;
   --accent: #c8a96e;
   --font-size-display: clamp(3.5rem, 8vw, 6.5rem);
+  --font-size-hero: clamp(5rem, 12vw, 10rem);
   --section-gap: 8rem;
   --nav-height: 64px;
   --transition-base: 200ms ease;
@@ -51,11 +52,28 @@ a {
   animation: fadeUp 0.6s ease forwards;
 }
 
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-18px) rotate(4deg); }
+}
+
+.slide-left  { opacity: 0; }
+.slide-right { opacity: 0; }
+
+.slide-left.visible  { animation: slideInLeft  0.7s ease forwards; }
+.slide-right.visible { animation: slideInRight 0.7s ease forwards; }
+
 @media (prefers-reduced-motion: reduce) {
-  .fade-up {
-    opacity: 1;
-  }
-  .fade-up.visible {
-    animation: none;
-  }
+  .fade-up, .slide-left, .slide-right { opacity: 1; }
+  .fade-up.visible, .slide-left.visible, .slide-right.visible { animation: none; }
 }

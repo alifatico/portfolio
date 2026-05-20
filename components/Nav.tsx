@@ -32,10 +32,10 @@ export default function Nav() {
 
   return (
     <nav className={cls} aria-label="Primary" inert={hidden ? true : undefined}>
-      <span className={styles.name}>Enrico Damiani</span>
+      <span className={styles.name}>Solvix</span>
       <ul className={styles.links}>
         <li><a href="#work">Work</a></li>
-        <li><a href="#skills">Skills</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>

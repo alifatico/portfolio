@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Enrico Damiani",
-  description: "Category Development & Data Analytics professional",
+  title: "Solvix — Strategy & Analytics Consulting",
+  description: "Solvix is a consulting firm that turns complex data into decisions that move markets.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -20,8 +20,16 @@
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
   line-height: 1.1;
+}
+
+.sub {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  max-width: 40ch;
 }
 
 .actions {
@@ -50,7 +58,7 @@
   outline-offset: 3px;
 }
 
-.cvButton {
+.deckButton {
   font-size: 0.9rem;
   color: var(--bg);
   background: var(--text-primary);
@@ -61,11 +69,11 @@
   cursor: pointer;
 }
 
-.cvButton:hover {
+.deckButton:hover {
   background: var(--accent);
 }
 
-.cvButton:focus-visible {
+.deckButton:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
