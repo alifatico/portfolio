@@ -9,7 +9,7 @@
   --text-primary: #f0f0f0;
   --text-secondary: #888888;
   --accent: #c8a96e;
-  --font-display: clamp(3.5rem, 8vw, 6.5rem);
+  --font-size-display: clamp(3.5rem, 8vw, 6.5rem);
   --section-gap: 8rem;
   --nav-height: 64px;
   --transition-base: 200ms ease;
