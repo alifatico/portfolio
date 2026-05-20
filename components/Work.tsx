@@ -19,7 +19,14 @@ export default function Work() {
       </FadeIn>
       {roles.map((role, i) => (
         <FadeIn key={i} delay={i * 80}>
-          <div className={styles.card} onClick={() => toggle(i)}>
+          <div
+              className={styles.card}
+              role="button"
+              tabIndex={0}
+              aria-expanded={openIndex === i}
+              onClick={() => toggle(i)}
+              onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && toggle(i)}
+            >
             <div className={styles.cardHeader}>
               <div className={styles.meta}>
                 <p className={styles.company}>{role.company}</p>

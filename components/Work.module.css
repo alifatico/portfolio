@@ -16,12 +16,10 @@
 
 .card {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: -1px;
   padding: 2rem 0;
   cursor: pointer;
-}
-
-.card:last-child {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .cardHeader {
