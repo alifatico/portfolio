@@ -2,24 +2,23 @@
 .hero {
   min-height: 100dvh;
   display: grid;
-  grid-template-columns: 1fr 380px;
+  grid-template-columns: 1fr 420px;
   align-items: center;
   padding: 0 2.5rem;
   padding-top: var(--nav-height);
-  gap: 2rem;
+  gap: 3rem;
   overflow: hidden;
-  position: relative;
 }
 
-/* --- Content side --- */
+/* ---- Content ---- */
 .content {
   display: flex;
   flex-direction: column;
 }
 
 .label {
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 1.25rem;
@@ -30,8 +29,8 @@
 .heading {
   font-size: var(--font-size-hero);
   font-weight: 700;
-  line-height: 0.92;
-  letter-spacing: -0.04em;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
   color: var(--text-primary);
   margin-bottom: 1.75rem;
   opacity: 0;
@@ -39,9 +38,9 @@
 }
 
 .tagline {
-  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  font-size: clamp(1rem, 2vw, 1.35rem);
   color: var(--text-secondary);
-  line-height: 1.55;
+  line-height: 1.6;
   max-width: 36ch;
   margin-bottom: 2.5rem;
   opacity: 0;
@@ -50,14 +49,14 @@
 
 .ctas {
   display: flex;
-  gap: 1rem;
+  gap: 0.85rem;
   flex-wrap: wrap;
   opacity: 0;
   animation: fadeUp 0.6s ease 0.5s forwards;
 }
 
 .ctaPrimary {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 500;
   background: var(--text-primary);
   color: var(--bg);
@@ -66,12 +65,10 @@
   transition: background var(--transition-base);
 }
 
-.ctaPrimary:hover {
-  background: var(--accent);
-}
+.ctaPrimary:hover { background: var(--accent); }
 
 .ctaSecondary {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--text-secondary);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 6px;
@@ -81,90 +78,126 @@
 
 .ctaSecondary:hover {
   color: var(--text-primary);
-  border-color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
-/* --- Accent / geometric side --- */
-.accent {
+/* ---- Mosaic ---- */
+.mosaic {
   position: relative;
   height: 520px;
+  width: 100%;
 }
 
-.orb {
+.mosaicCard {
   position: absolute;
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(
-    circle at center,
-    rgba(200, 169, 110, 0.13) 0%,
-    transparent 68%
+  border-radius: 10px;
+  overflow: hidden;
+  background: #111;
+}
+
+/* Card 0 — top-left, tall */
+.card0 {
+  width: 190px;
+  height: 240px;
+  top: 30px;
+  left: 0;
+  animation: fadeUp 0.7s ease 0.6s both;
+}
+
+/* Card 1 — top-right, wider */
+.card1 {
+  width: 210px;
+  height: 180px;
+  top: 0;
+  right: 0;
+  animation: fadeUp 0.7s ease 0.75s both;
+}
+
+/* Card 2 — bottom-left, square */
+.card2 {
+  width: 175px;
+  height: 175px;
+  bottom: 60px;
+  left: 20px;
+  animation: fadeUp 0.7s ease 0.9s both;
+}
+
+/* Card 3 — bottom-right, wide */
+.card3 {
+  width: 215px;
+  height: 220px;
+  bottom: 30px;
+  right: 10px;
+  animation: fadeUp 0.7s ease 1.05s both;
+}
+
+.mosaicImg {
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.mosaicCard:hover .mosaicImg { transform: scale(1.06); }
+
+.mosaicOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(200, 169, 110, 0.07) 0%,
+    transparent 60%
   );
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: orbFloat 9s ease-in-out infinite;
-  will-change: transform;
 }
 
-.pill1 {
+/* Decorative floats */
+.floatingPill {
   position: absolute;
-  width: 110px;
-  height: 34px;
+  width: 90px;
+  height: 28px;
   border: 1px solid rgba(200, 169, 110, 0.35);
   border-radius: 100px;
-  top: 22%;
-  left: 12%;
-  animation: orbFloat 7s ease-in-out infinite 0.8s;
+  top: 48%;
+  left: 44%;
+  animation: orbFloat 7s ease-in-out infinite;
 }
 
-.pill2 {
+.floatingDot {
   position: absolute;
-  width: 70px;
-  height: 70px;
-  border: 1px solid rgba(200, 169, 110, 0.2);
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
   border-radius: 50%;
-  bottom: 25%;
-  right: 8%;
-  animation: orbFloat 8s ease-in-out infinite 2s;
+  opacity: 0.5;
+  top: 20%;
+  left: 52%;
+  animation: orbFloat 5s ease-in-out infinite 1.2s;
 }
 
-.circle {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 50%;
-  top: 10%;
-  right: 0;
-  animation: orbFloat 11s ease-in-out infinite 1.5s;
-}
-
-/* --- Responsive --- */
-@media (max-width: 900px) {
+/* ---- Responsive ---- */
+@media (max-width: 960px) {
   .hero {
     grid-template-columns: 1fr;
-    padding: 0 1.5rem;
-    padding-top: var(--nav-height);
+    padding-top: calc(var(--nav-height) + 2rem);
+    min-height: auto;
+    padding-bottom: 4rem;
   }
-  .accent {
-    display: none;
+  .mosaic {
+    height: 280px;
   }
+  .card0 { width: 130px; height: 165px; top: 10px; left: 0; }
+  .card1 { width: 145px; height: 125px; top: 0; right: 0; }
+  .card2 { width: 120px; height: 120px; bottom: 20px; left: 15px; }
+  .card3 { width: 145px; height: 150px; bottom: 10px; right: 0; }
 }
 
 @media (max-width: 600px) {
-  .hero {
-    padding: 0 1.25rem;
-    padding-top: var(--nav-height);
-  }
+  .hero { padding: 0 1.25rem; padding-top: calc(var(--nav-height) + 1.5rem); padding-bottom: 3rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .label, .heading, .tagline, .ctas {
+  .label, .heading, .tagline, .ctas,
+  .card0, .card1, .card2, .card3 {
     opacity: 1;
     animation: none;
   }
-  .orb, .pill1, .pill2, .circle {
-    animation: none;
-  }
+  .floatingPill, .floatingDot { animation: none; }
 }

@@ -1,5 +1,13 @@
 // components/Hero.tsx
+import Image from "next/image";
 import styles from "./Hero.module.css";
+
+const mosaicImages = [
+  "https://picsum.photos/seed/solvix-h1/600/450",
+  "https://picsum.photos/seed/solvix-h2/600/450",
+  "https://picsum.photos/seed/solvix-h3/600/450",
+  "https://picsum.photos/seed/solvix-h4/600/450",
+];
 
 export default function Hero() {
   return (
@@ -15,11 +23,22 @@ export default function Hero() {
           <a href="#contact" className={styles.ctaSecondary}>Get in touch</a>
         </div>
       </div>
-      <div className={styles.accent} aria-hidden="true">
-        <div className={styles.orb} />
-        <div className={styles.pill1} />
-        <div className={styles.pill2} />
-        <div className={styles.circle} />
+
+      <div className={styles.mosaic} aria-hidden="true">
+        {mosaicImages.map((src, i) => (
+          <div key={i} className={`${styles.mosaicCard} ${styles[`card${i}`]}`}>
+            <Image
+              src={src}
+              alt=""
+              fill
+              sizes="200px"
+              className={styles.mosaicImg}
+            />
+            <div className={styles.mosaicOverlay} />
+          </div>
+        ))}
+        <div className={styles.floatingPill} />
+        <div className={styles.floatingDot} />
       </div>
     </section>
   );
