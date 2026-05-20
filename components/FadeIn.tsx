@@ -17,7 +17,7 @@ export default function FadeIn({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !el.classList.contains("visible")) {
           el.style.animationDelay = `${delay}ms`;
           el.classList.add("visible");
           observer.disconnect();
