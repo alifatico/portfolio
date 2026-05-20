@@ -15,7 +15,7 @@ export default function Work() {
   return (
     <section id="work" className={styles.section}>
       <FadeIn>
-        <p className={styles.sectionLabel}>Work</p>
+        <h2 className={styles.sectionLabel}>Work</h2>
       </FadeIn>
       {roles.map((role, i) => (
         <FadeIn key={i} delay={i * 80}>
