@@ -8,7 +8,7 @@ export default function Contact() {
   return (
     <Section id="contact">
       <Container>
-        <Eyebrow>Contact</Eyebrow>
+        <Eyebrow variant="paren">Contact</Eyebrow>
         <Heading as="h2" variant="display" className={styles.statement}>
           Start a conversation.
         </Heading>

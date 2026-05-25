@@ -5,9 +5,9 @@ export type Metric = {
 };
 
 export type Project = {
+  partner: string;
   sector: string;
   title: string;
-  description: string;
   year: string;
   platform: string;
   metrics: Metric[];
@@ -17,38 +17,43 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    partner: "Global optics group",
     sector: "FMCG / Optics",
     title: "EMEA Commercial Reporting Overhaul",
-    description:
-      "Rebuilt the monthly performance reporting cycle for a global optics group across 8 EMEA market clusters — from raw data collection through to executive presentation-ready decks.",
     year: "2025",
     platform: "Excel / VBA · Power BI",
     metrics: [
       { label: "Monthly close", value: "5d → 1d", delta: "positive" },
       { label: "Country teams adopted", value: "30+", delta: "positive" },
     ],
-    services: ["Performance reporting", "Dashboard development", "Executive narrative"],
+    services: [
+      "Performance reporting",
+      "Dashboard development",
+      "Executive narrative",
+    ],
     image: "/images/projects/emea.jpg",
   },
   {
+    partner: "Pan-European retail group",
     sector: "Retail",
     title: "Pan-European Market Sizing Framework",
-    description:
-      "Designed a standardised market sizing methodology for a pan-European retail group, enabling consistent cross-market benchmarking and performance normalisation for the first time.",
     year: "2025",
     platform: "Python · SQL · Tableau",
     metrics: [
       { label: "European markets covered", value: "12", delta: "neutral" },
       { label: "Benchmark consistency", value: "1:1", delta: "positive" },
     ],
-    services: ["Market sizing", "Methodology design", "Cross-market benchmarking"],
+    services: [
+      "Market sizing",
+      "Methodology design",
+      "Cross-market benchmarking",
+    ],
     image: "/images/projects/sizing.jpg",
   },
   {
+    partner: "Financial services strategy team",
     sector: "Financial Services",
     title: "KPI Automation Programme",
-    description:
-      "Automated the end-of-month KPI pack production for a financial services strategy team, eliminating manual data collection across 6 source systems and a fragile chain of Excel handoffs.",
     year: "2024",
     platform: "Excel / VBA · SharePoint · Power BI",
     metrics: [

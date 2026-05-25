@@ -3,7 +3,7 @@ import Heading from "./Heading";
 import styles from "./CaseStudyCard.module.css";
 import type { Project, Metric } from "@/data/projects";
 
-function PhotographicCover({ src, title }: { src: string; title: string }) {
+function PhotographicCover({ src }: { src: string }) {
   return (
     <div className={styles.cover}>
       <Image
@@ -43,28 +43,53 @@ function MetricRow({ metrics }: { metrics: Metric[] }) {
   );
 }
 
-export default function CaseStudyCard({ project }: { project: Project }) {
+export default function CaseStudyCard({
+  project,
+  letter,
+}: {
+  project: Project;
+  letter?: string;
+}) {
   return (
     <article className={styles.card}>
-      <PhotographicCover src={project.image} title={project.title} />
+      <PhotographicCover src={project.image} />
       <div className={styles.body}>
-        <div className={styles.meta}>
-          <span className={styles.sector}>{project.sector}</span>
-          <span className={styles.year}>{project.year}</span>
-        </div>
+        {letter && (
+          <p className={styles.letter} aria-hidden="true">
+            ({letter})
+          </p>
+        )}
+        <p className={styles.partnerLabel}>Partner</p>
+        <p className={styles.partner}>{project.partner}</p>
+        <dl className={styles.meta}>
+          <div className={styles.metaItem}>
+            <dt className={styles.metaLabel}>Sector</dt>
+            <dd className={styles.metaValue}>{project.sector}</dd>
+          </div>
+          <div className={styles.metaItem}>
+            <dt className={styles.metaLabel}>Year</dt>
+            <dd className={styles.metaValue}>{project.year}</dd>
+          </div>
+          <div className={styles.metaItem}>
+            <dt className={styles.metaLabel}>Stack</dt>
+            <dd className={styles.metaValue}>{project.platform}</dd>
+          </div>
+        </dl>
         <Heading as="h3" variant="medium" className={styles.title}>
           {project.title}
         </Heading>
-        <p className={styles.description}>{project.description}</p>
-        <p className={styles.platform}>{project.platform}</p>
         <MetricRow metrics={project.metrics} />
         <ul className={styles.services}>
           {project.services.map((s) => (
             <li key={s}>{s}</li>
           ))}
         </ul>
-        <a href="#" className={styles.cta} aria-label={`Case study: ${project.title}`}>
-          Case Study <span aria-hidden="true">→</span>
+        <a
+          href="#"
+          className={styles.cta}
+          aria-label={`Case study: ${project.title}`}
+        >
+          Explore <span aria-hidden="true">→</span>
         </a>
       </div>
     </article>
