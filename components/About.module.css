@@ -1,0 +1,29 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 1025px) {
+  .grid {
+    grid-template-columns: 200px 1fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+}
+
+.content {
+  max-width: 24ch;
+}
+
+.statement {
+  max-width: 18ch;
+}
+
+.paragraph {
+  margin-block-start: var(--space-8);
+  color: var(--text-secondary);
+  font-size: var(--type-body-large);
+  line-height: 1.5;
+  max-width: 48ch;
+}

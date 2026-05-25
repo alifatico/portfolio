@@ -1,0 +1,24 @@
+.heading {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.display {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+  font-size: var(--type-display);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.large {
+  font-size: var(--type-h2);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+.medium {
+  font-size: var(--type-h3);
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+}

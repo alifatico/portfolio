@@ -1,35 +1,41 @@
-// components/Services.tsx
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+import Eyebrow from "@/components/ui/Eyebrow";
+import Heading from "@/components/ui/Heading";
 import { services } from "@/data/services";
-import FadeIn from "@/components/FadeIn";
 import styles from "./Services.module.css";
+
+const letters = ["a.", "b.", "c.", "d.", "e.", "f."];
 
 export default function Services() {
   return (
-    <section id="services" className={styles.section}>
-      <FadeIn animClass="slide-left">
+    <Section id="services">
+      <Container>
         <div className={styles.header}>
-          <h2 className={styles.sectionLabel}>Services</h2>
-          <p className={styles.sectionTagline}>
+          <Eyebrow>Services</Eyebrow>
+          <Heading as="h2" variant="large">
             Four practice areas, one integrated approach.
-          </p>
+          </Heading>
         </div>
-      </FadeIn>
-      <div className={styles.grid}>
-        {services.map((service, i) => (
-          <FadeIn key={service.number} delay={i * 80} animClass="fade-up">
-            <div className={styles.card}>
-              <span className={styles.number}>{service.number}</span>
-              <h3 className={styles.title}>{service.title}</h3>
-              <p className={styles.description}>{service.description}</p>
-              <ul className={styles.caps}>
-                {service.capabilities.map((c) => (
-                  <li key={c}>{c}</li>
-                ))}
-              </ul>
-            </div>
-          </FadeIn>
-        ))}
-      </div>
-    </section>
+        <ol className={styles.list}>
+          {services.map((service, i) => (
+            <li key={service.title} className={styles.item}>
+              <span className={styles.letter} aria-hidden="true">
+                {letters[i] ?? `${i + 1}.`}
+              </span>
+              <div className={styles.body}>
+                <Heading as="h3" variant="medium" className={styles.title}>
+                  {service.title}
+                </Heading>
+                <p className={styles.description}>{service.description}</p>
+                <p className={styles.capabilities}>
+                  {service.capabilities.join(" · ")}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </Container>
+    </Section>
   );
 }

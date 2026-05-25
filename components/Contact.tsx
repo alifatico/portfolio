@@ -1,28 +1,24 @@
-// components/Contact.tsx
-import FadeIn from "@/components/FadeIn";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+import Eyebrow from "@/components/ui/Eyebrow";
+import Heading from "@/components/ui/Heading";
 import styles from "./Contact.module.css";
 
 export default function Contact() {
   return (
-    <section id="contact" className={styles.section}>
-      <FadeIn animClass="fade-up">
-        <h2 className={styles.sectionLabel}>Contact</h2>
-        <p className={styles.heading}>Start a conversation.</p>
+    <Section id="contact">
+      <Container>
+        <Eyebrow>Contact</Eyebrow>
+        <Heading as="h2" variant="display" className={styles.statement}>
+          Start a conversation.
+        </Heading>
         <p className={styles.sub}>
-          Tell us about your challenge — we&apos;ll respond within 24 hours.
+          Tell us about your challenge. We respond within 24 hours.
         </p>
-        <div className={styles.actions}>
-          <a href="mailto:hello@solvix.co" className={styles.emailLink}>
-            hello@solvix.co
-          </a>
-          <a href="/deck.pdf" download className={styles.deckButton}>
-            Download deck
-          </a>
-        </div>
-        <p className={styles.footer}>
-          © 2026 Solvix. All rights reserved.
-        </p>
-      </FadeIn>
-    </section>
+        <a href="mailto:hello@solvix.co" className={styles.email}>
+          hello@solvix.co
+        </a>
+      </Container>
+    </Section>
   );
 }

@@ -1,93 +1,27 @@
-/* components/Contact.module.css */
-.section {
-  padding: var(--section-gap) 2.5rem;
-  padding-bottom: calc(var(--section-gap) * 1.5);
-  max-width: 900px;
-  margin: 0 auto;
-  scroll-margin-top: var(--nav-height);
-}
-
-.sectionLabel {
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 2rem;
-}
-
-.heading {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-  line-height: 1.1;
+.statement {
+  margin-block-start: var(--space-3);
+  max-width: 14ch;
 }
 
 .sub {
-  font-size: 0.95rem;
+  margin-block-start: var(--space-6);
   color: var(--text-secondary);
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
+  font-size: var(--type-body-large);
+  line-height: 1.5;
   max-width: 40ch;
 }
 
-.actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 6rem;
-}
-
-.emailLink {
-  font-size: 0.9rem;
+.email {
+  display: inline-block;
+  margin-block-start: var(--space-8);
   color: var(--text-primary);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-  padding: 0.75rem 1.5rem;
-  transition: border-color var(--transition-base), color var(--transition-base);
+  font-size: var(--type-body-large);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: text-underline-offset var(--motion-micro) var(--easing);
+  min-height: 44px;
 }
 
-.emailLink:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.emailLink:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-.deckButton {
-  font-size: 0.9rem;
-  color: var(--bg);
-  background: var(--text-primary);
-  border: 1px solid transparent;
-  border-radius: 6px;
-  padding: 0.75rem 1.5rem;
-  transition: background var(--transition-base);
-  cursor: pointer;
-}
-
-.deckButton:hover {
-  background: var(--accent);
-}
-
-.deckButton:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
-
-.footer {
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-}
-
-@media (max-width: 600px) {
-  .section {
-    padding: var(--section-gap) 1.25rem;
-    padding-bottom: calc(var(--section-gap) * 1.5);
-  }
+.email:hover {
+  text-underline-offset: 4px;
 }
