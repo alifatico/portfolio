@@ -31,6 +31,19 @@
   color: var(--text-secondary);
 }
 
+.letter {
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style: none;
+}
+
 .link {
   color: var(--text-primary);
   font-size: var(--type-body);
@@ -45,6 +58,12 @@
 
 .link:hover {
   text-underline-offset: 4px;
+}
+
+.staticItem {
+  color: var(--text-secondary);
+  font-size: var(--type-body);
+  line-height: 1.4;
 }
 
 .legal {
