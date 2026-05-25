@@ -9,15 +9,15 @@ export default function About() {
     <Section id="about">
       <Container>
         <div className={styles.grid}>
-          <Eyebrow>Approach</Eyebrow>
+          <Eyebrow variant="paren">Approach</Eyebrow>
           <div className={styles.content}>
             <Heading as="h2" variant="display" className={styles.statement}>
               Analytics is craft. Decisions are the product.
             </Heading>
             <p className={styles.paragraph}>
               We work where strategy, finance, and operations overlap — turning
-              the data that's already in your business into the answers that
-              leadership can act on. Methodology over tools. Clarity over
+              the data that&apos;s already in your business into the answers
+              that leadership can act on. Methodology over tools. Clarity over
               dashboards. The number, then the narrative around it.
             </p>
           </div>

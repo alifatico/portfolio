@@ -6,3 +6,9 @@
   text-transform: uppercase;
   color: var(--text-secondary);
 }
+
+.paren {
+  letter-spacing: 0;
+  font-weight: 400;
+  color: var(--text-secondary);
+}

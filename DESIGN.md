@@ -14,8 +14,8 @@ Two faces. Loaded once via `next/font/google` in `app/layout.tsx`, surfaced as C
 
 | Token | Family | Where it renders | Weight |
 | --- | --- | --- | --- |
-| `--font-inter` | Inter (variable) | Body, eyebrow, card titles, services, nav | 400, 500 |
-| `--font-display` | Instrument Serif | Hero h1, About h2 (only `Heading variant="display"`) | 400 |
+| `--font-inter` | Inter (variable) | Body, eyebrow, card titles, services, nav, Hero microcopy | 400, 500 |
+| `--font-display` | Instrument Serif | `<BrandStatement>` h1 (4-line stacked), About h2 (`Heading variant="display"`), Services letter index | 400 |
 
 Body never uses the display serif. Display never uses the body sans. The contrast between the two carries 80% of the editorial register that Inter alone misses.
 
@@ -25,7 +25,7 @@ Fluid via `clamp()`. Mobile-first inputs in the leftmost column, desktop on the 
 
 | Token | Use | Size (min → max) | Weight | Tracking | Line-height |
 | --- | --- | --- | --- | --- | --- |
-| `--type-display` | Hero h1, About h2 (serif) | `clamp(48px, 7vw, 96px)` | 400 | -0.02em | 1.05 |
+| `--type-display` | `<BrandStatement>` h1 (4 stacked `<span style="display:block">` lines), About h2 (serif via `Heading variant="display"`) | `clamp(48px, 7vw, 96px)` | 400 | -0.02em | 1.02 (BrandStatement) / 1.05 (About) |
 | `--type-h2` | Section labels (where serif isn't used) | `clamp(28px, 3.2vw, 40px)` | 500 | -0.01em | 1.15 |
 | `--type-h3` | Card titles | `clamp(20px, 1.8vw, 24px)` | 500 | -0.005em | 1.25 |
 | `--type-body-large` | Hero tagline, About paragraph | `clamp(18px, 1.4vw, 22px)` | 400 | 0 | 1.5 |
@@ -127,11 +127,12 @@ Every interactive element specifies all five states. No assumed defaults.
 
 ### Heading order
 
-- One `Heading variant="display"` rendered as `<h1>` per page (the Hero headline).
-- About section statement is `<h2>`.
+- One `<h1>` per page: the `<BrandStatement>` component (4-line stacked display serif, rendered as a single `<h1>` with 4 `<span style="display:block">` children + an `aria-label` flattening the lines for screen readers). Hero is microcopy only — no headings.
+- About section statement is `<h2>` (`Heading variant="display"`).
+- Section titles for Projects / Services / FutureVision / Contact are `<h2>` (`Heading variant="large"`).
 - All card titles are `<h3>`.
 - Service block titles are `<h3>`.
-- Eyebrows are NOT headings — they are `<p>` with `--type-eyebrow`.
+- Eyebrows are NOT headings — they are `<p>` with `--type-eyebrow`. The `Eyebrow` component supports `variant="default"` (plain uppercase) and `variant="paren"` (wrapped in `( ` and ` )` via inline spans with `aria-hidden`); section eyebrows use `variant="paren"` for the editorial register.
 
 ### Touch targets
 
@@ -154,7 +155,7 @@ Aspect ratio is locked at `4 / 3` via the `.cover` rule — no CLS. `next/image`
 
 `alt=""` on every cover. The adjacent `<h3>` already carries semantic identity for screen readers; doubling it on the image is noise. This is a deliberate decorative-image choice, not an oversight. When real client photography arrives, alt remains empty unless the image carries information the title does not.
 
-Hero and About sections stay text-only — no images. The display serif and editorial spacing are the differentiator.
+Hero, BrandStatement, About, and FutureVision sections stay text-only — no images. The display serif and editorial spacing are the differentiator. Hero is intentionally demoted to microcopy (greeting + brand line + email + location); the visual headline weight lives in `<BrandStatement>` below the featured Projects, mirroring madeinevolve.com's "(01)(02)(03) projects → big brand statement" rhythm.
 
 ## Affordance without color (delta valence)
 
@@ -192,4 +193,6 @@ Metric row at ≤640px becomes a 2-col grid (never horizontal scroll).
 - No icon library. Glyph valence and `▲ ▼` are inline UTF-8.
 - No CDN remote-image config. Case study photography is self-hosted JPEGs in `/public/images/projects/` — replace in place when real photography arrives.
 - No EN/IT toggle (out of scope per plan).
-- No light-mode (the rebuild is dark per user direction; reference site is light — divergence is intentional).
+- No light-mode (the rebuild is dark; verified the reference site madeinevolve.com is also dark at `rgb(17,17,17)`, our `#0a0a0a` is coherent).
+- No preloader / `Please Wait` intro animation. SSR-instant render per the "No-JS / SSR baseline" decision.
+- No showreel video block. The reference uses one; we don't have video assets and adding a placeholder would degrade the editorial register.
