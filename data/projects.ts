@@ -12,6 +12,7 @@ export type Project = {
   platform: string;
   metrics: Metric[];
   services: string[];
+  image: string;
 };
 
 export const projects: Project[] = [
@@ -27,6 +28,7 @@ export const projects: Project[] = [
       { label: "Country teams adopted", value: "30+", delta: "positive" },
     ],
     services: ["Performance reporting", "Dashboard development", "Executive narrative"],
+    image: "/images/projects/emea.jpg",
   },
   {
     sector: "Retail",
@@ -40,6 +42,7 @@ export const projects: Project[] = [
       { label: "Benchmark consistency", value: "1:1", delta: "positive" },
     ],
     services: ["Market sizing", "Methodology design", "Cross-market benchmarking"],
+    image: "/images/projects/sizing.jpg",
   },
   {
     sector: "Financial Services",
@@ -53,5 +56,6 @@ export const projects: Project[] = [
       { label: "Manual errors / 12 months", value: "0", delta: "positive" },
     ],
     services: ["Process automation", "KPI design", "Workflow redesign"],
+    image: "/images/projects/kpi.jpg",
   },
 ];

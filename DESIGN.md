@@ -141,6 +141,21 @@ Every interactive element specifies all five states. No assumed defaults.
 
 The rebuild drops scroll-reveal entirely — there is no `FadeIn` wrapper. Content renders visible from first paint, server-side. No `.no-js` class, no inline removal script, no hydration mismatch surface. Editorial sites earn restraint by NOT animating on entry; hover motion (link underline grow, card border lift + translate, cover ken-burns) carries the kinetic vocabulary instead. Crawlers, no-JS users, and CLS budgets all benefit.
 
+## Placeholder photography (case study covers)
+
+Case study card covers use `next/image` with self-hosted JPEGs in `/public/images/projects/`. Source: curated Unsplash, downloaded once. Each photo is rendered through a unified grading layer so variety in subject reads as unity in treatment:
+
+```css
+.coverImage  { filter: grayscale(0.8) contrast(1.05); }
+.cover::after { background: var(--bg); opacity: 0.2; }
+```
+
+Aspect ratio is locked at `4 / 3` via the `.cover` rule — no CLS. `next/image` is fed `width={1600} height={1200}` with sizes hints matching the responsive grid (`100vw` mobile / `50vw` tablet / `33vw` desktop).
+
+`alt=""` on every cover. The adjacent `<h3>` already carries semantic identity for screen readers; doubling it on the image is noise. This is a deliberate decorative-image choice, not an oversight. When real client photography arrives, alt remains empty unless the image carries information the title does not.
+
+Hero and About sections stay text-only — no images. The display serif and editorial spacing are the differentiator.
+
 ## Affordance without color (delta valence)
 
 `<MetricRow>` shows positive/negative deltas with prefix glyphs and tabular-nums:
@@ -175,5 +190,6 @@ Metric row at ≤640px becomes a 2-col grid (never horizontal scroll).
 - No Tailwind. CSS Modules continue.
 - No design tokens generator (Style Dictionary etc.). One CSS file, one source of truth.
 - No icon library. Glyph valence and `▲ ▼` are inline UTF-8.
+- No CDN remote-image config. Case study photography is self-hosted JPEGs in `/public/images/projects/` — replace in place when real photography arrives.
 - No EN/IT toggle (out of scope per plan).
 - No light-mode (the rebuild is dark per user direction; reference site is light — divergence is intentional).

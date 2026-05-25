@@ -14,7 +14,7 @@
   transform: translateY(-4px);
 }
 
-/* Cover (typographic, no image asset) */
+/* Cover (photographic, with unified grading + dark overlay) */
 .cover {
   position: relative;
   aspect-ratio: 4 / 3;
@@ -23,37 +23,26 @@
   overflow: hidden;
 }
 
-.coverInner {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: var(--space-6);
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0.8) contrast(1.05);
   transition: transform var(--motion-base) var(--easing);
 }
 
-.card:hover .coverInner {
+.card:hover .coverImage {
   transform: scale(1.04);
 }
 
-.coverLetter {
-  font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(96px, 16vw, 200px);
-  font-weight: 400;
-  line-height: 0.85;
-  color: var(--text-primary);
-  letter-spacing: -0.04em;
-}
-
-.coverSector {
-  font-size: var(--type-eyebrow);
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  align-self: flex-end;
+.cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 /* Body */

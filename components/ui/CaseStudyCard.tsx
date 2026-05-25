@@ -1,15 +1,19 @@
+import Image from "next/image";
 import Heading from "./Heading";
 import styles from "./CaseStudyCard.module.css";
 import type { Project, Metric } from "@/data/projects";
 
-function TypographicCover({ sector, title }: { sector: string; title: string }) {
-  const letter = title.charAt(0).toUpperCase();
+function PhotographicCover({ src, title }: { src: string; title: string }) {
   return (
-    <div className={styles.cover} aria-hidden="true">
-      <div className={styles.coverInner}>
-        <span className={styles.coverLetter}>{letter}</span>
-        <span className={styles.coverSector}>{sector}</span>
-      </div>
+    <div className={styles.cover}>
+      <Image
+        src={src}
+        alt=""
+        width={1600}
+        height={1200}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className={styles.coverImage}
+      />
     </div>
   );
 }
@@ -42,7 +46,7 @@ function MetricRow({ metrics }: { metrics: Metric[] }) {
 export default function CaseStudyCard({ project }: { project: Project }) {
   return (
     <article className={styles.card}>
-      <TypographicCover sector={project.sector} title={project.title} />
+      <PhotographicCover src={project.image} title={project.title} />
       <div className={styles.body}>
         <div className={styles.meta}>
           <span className={styles.sector}>{project.sector}</span>
