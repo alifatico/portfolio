@@ -1,203 +1,77 @@
-/* components/Hero.module.css */
 .hero {
-  min-height: 100dvh;
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  align-items: center;
-  padding: 0 2.5rem;
-  padding-top: var(--nav-height);
-  gap: 3rem;
-  overflow: hidden;
+  padding-block: var(--space-section-y) var(--space-12);
 }
 
-/* ---- Content ---- */
-.content {
+.grid {
   display: flex;
   flex-direction: column;
+  gap: var(--space-12);
 }
 
-.label {
-  font-size: 0.72rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 1.25rem;
-  opacity: 0;
-  animation: fadeUp 0.6s ease 0.1s forwards;
+@media (min-width: 1025px) {
+  .grid {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-16);
+  }
 }
 
-.heading {
-  font-size: var(--font-size-hero);
-  font-weight: 700;
-  line-height: 0.9;
-  letter-spacing: -0.05em;
-  color: var(--text-primary);
-  margin-bottom: 1.75rem;
-  opacity: 0;
-  animation: fadeUp 0.6s ease 0.2s forwards;
-}
-
-.tagline {
-  font-size: clamp(1rem, 2vw, 1.35rem);
-  color: var(--text-secondary);
-  line-height: 1.6;
-  max-width: 36ch;
-  margin-bottom: 2.5rem;
-  opacity: 0;
-  animation: fadeUp 0.6s ease 0.35s forwards;
-}
-
-.ctas {
+.intro {
   display: flex;
-  gap: 0.85rem;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: fadeUp 0.6s ease 0.5s forwards;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 38ch;
 }
 
-.ctaPrimary {
-  font-size: 0.875rem;
+.greeting {
+  font-size: var(--type-eyebrow);
   font-weight: 500;
-  background: var(--text-primary);
-  color: var(--bg);
-  border-radius: 6px;
-  padding: 0.8rem 1.75rem;
-  transition: background var(--transition-base);
-}
-
-.ctaPrimary:hover { background: var(--accent); }
-
-.ctaSecondary {
-  font-size: 0.875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--text-secondary);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 6px;
-  padding: 0.8rem 1.75rem;
-  transition: color var(--transition-base), border-color var(--transition-base);
 }
 
-.ctaSecondary:hover {
+.brandLine {
   color: var(--text-primary);
-  border-color: rgba(255, 255, 255, 0.4);
+  font-size: var(--type-body-large);
+  line-height: 1.5;
+  text-wrap: balance;
 }
 
-/* ---- Mosaic ---- */
-.mosaic {
-  position: relative;
-  height: 520px;
-  width: 100%;
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: flex-start;
 }
 
-.mosaicCard {
-  position: absolute;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #111;
-}
-
-/* Card 0 — top-left, tall */
-.card0 {
-  width: 190px;
-  height: 240px;
-  top: 30px;
-  left: 0;
-  animation: fadeUp 0.7s ease 0.6s both;
-}
-
-/* Card 1 — top-right, wider */
-.card1 {
-  width: 210px;
-  height: 180px;
-  top: 0;
-  right: 0;
-  animation: fadeUp 0.7s ease 0.75s both;
-}
-
-/* Card 2 — bottom-left, square */
-.card2 {
-  width: 175px;
-  height: 175px;
-  bottom: 60px;
-  left: 20px;
-  animation: fadeUp 0.7s ease 0.9s both;
-}
-
-/* Card 3 — bottom-right, wide */
-.card3 {
-  width: 215px;
-  height: 220px;
-  bottom: 30px;
-  right: 10px;
-  animation: fadeUp 0.7s ease 1.05s both;
-}
-
-.mosaicImg {
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.mosaicCard:hover .mosaicImg { transform: scale(1.06); }
-
-.mosaicOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(200, 169, 110, 0.07) 0%,
-    transparent 60%
-  );
-}
-
-/* Decorative floats */
-.floatingPill {
-  position: absolute;
-  width: 90px;
-  height: 28px;
-  border: 1px solid rgba(200, 169, 110, 0.35);
-  border-radius: 100px;
-  top: 48%;
-  left: 44%;
-  animation: orbFloat 7s ease-in-out infinite;
-}
-
-.floatingDot {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: var(--accent);
-  border-radius: 50%;
-  opacity: 0.5;
-  top: 20%;
-  left: 52%;
-  animation: orbFloat 5s ease-in-out infinite 1.2s;
-}
-
-/* ---- Responsive ---- */
-@media (max-width: 960px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding-top: calc(var(--nav-height) + 2rem);
-    min-height: auto;
-    padding-bottom: 4rem;
+@media (min-width: 1025px) {
+  .meta {
+    align-items: flex-end;
+    text-align: right;
   }
-  .mosaic {
-    height: 280px;
-  }
-  .card0 { width: 130px; height: 165px; top: 10px; left: 0; }
-  .card1 { width: 145px; height: 125px; top: 0; right: 0; }
-  .card2 { width: 120px; height: 120px; bottom: 20px; left: 15px; }
-  .card3 { width: 145px; height: 150px; bottom: 10px; right: 0; }
 }
 
-@media (max-width: 600px) {
-  .hero { padding: 0 1.25rem; padding-top: calc(var(--nav-height) + 1.5rem); padding-bottom: 3rem; }
+.email {
+  color: var(--text-primary);
+  font-size: var(--type-body-large);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: text-underline-offset var(--motion-micro) var(--easing);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .label, .heading, .tagline, .ctas,
-  .card0, .card1, .card2, .card3 {
-    opacity: 1;
-    animation: none;
-  }
-  .floatingPill, .floatingDot { animation: none; }
+.email:hover {
+  text-underline-offset: 4px;
+}
+
+.location {
+  font-size: var(--type-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
 }

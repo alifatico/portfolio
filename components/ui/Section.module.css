@@ -1,0 +1,4 @@
+.section {
+  padding-block: var(--space-section-y);
+  scroll-margin-top: var(--space-12);
+}

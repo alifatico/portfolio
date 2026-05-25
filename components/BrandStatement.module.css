@@ -1,0 +1,43 @@
+.section {
+  padding-block: var(--space-section-y);
+}
+
+.statement {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+  font-size: var(--type-display);
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  color: var(--text-primary);
+  text-wrap: balance;
+  margin: 0;
+}
+
+.line {
+  display: block;
+}
+
+.line:nth-child(2) {
+  padding-inline-start: 1ch;
+}
+
+.line:nth-child(3) {
+  padding-inline-start: 2ch;
+}
+
+.line:nth-child(4) {
+  padding-inline-start: 3ch;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 1025px) {
+  .line:nth-child(2) {
+    padding-inline-start: 2ch;
+  }
+  .line:nth-child(3) {
+    padding-inline-start: 4ch;
+  }
+  .line:nth-child(4) {
+    padding-inline-start: 6ch;
+  }
+}

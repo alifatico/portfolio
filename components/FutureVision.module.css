@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-block-end: var(--space-12);
+  max-width: 32ch;
+}
+
+.title {
+  text-wrap: balance;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 65ch;
+}
+
+.paragraph {
+  color: var(--text-primary);
+  font-size: var(--type-body-large);
+  line-height: 1.55;
+  letter-spacing: 0;
+}
+
+.paragraph + .paragraph {
+  color: var(--text-secondary);
+}
